@@ -17,10 +17,17 @@
 const Route = use('Route')
 
 Route.get('/', ({response}) => {
-  response.send(`Hello World. My first App Adonis JS <br><a href="/posts">Listar posts</a>`)
+  response.send(`<html>
+    <head>
+      <title>Adonis example</title>
+    </head>
+    <body>
+    Hello World. My first App Adonis JS <br><a href="/posts">Listar posts</a>
+    </body>
+  </html>`)
 })
 
 Route.get("posts","PostController.index")
+Route.post("posts","PostController.create")
 Route.put("posts/:id","PostController.update")
-Route.post("posts/:id","PostController.create")
 Route.delete("posts/:id","PostController.delete")
