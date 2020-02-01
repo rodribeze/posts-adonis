@@ -16,24 +16,11 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return `
-  <html>
-    <head>
-      <link rel="stylesheet" href="/style.css" />
-    </head>
-    <body>
-      <section>
-        <div class="logo"></div>
-        <div class="title"></div>
-        <div class="subtitle">
-          <p>AdonisJs simplicity will make you feel confident about your code</p>
-          <p>
-            Don't know where to start? Read the <a href="https://adonisjs.com/docs">documentation</a>.
-          </p>    
-      </div>
-      </section>
-    </body>
-  </html>
-  `
+Route.get('/', ({response}) => {
+  response.send(`Hello World. My first App Adonis JS <br><a href="/posts">Listar posts</a>`)
 })
+
+Route.get("posts","PostController.index")
+Route.put("posts/:id","PostController.update")
+Route.post("posts/:id","PostController.create")
+Route.delete("posts/:id","PostController.delete")
